@@ -1,65 +1,36 @@
 import os
-import sys
 import json
+from google import genai
+from pydantic import BaseModel, Field
 
+# Load env in case of local dev
 try:
     from dotenv import load_dotenv
     load_dotenv()
 except ImportError:
     pass
 
-from google import genai
-from pydantic import BaseModel, Field
-
-# Define the expected output structure globally using Pydantic (compatible with Gemini structured output)
 class PromptOptimizationResult(BaseModel):
     perfected_prompt: str = Field(description="The highly optimized, ready-to-copy prompt")
     friendly_message: str = Field(description="A firm yet friendly message understanding the user's intent and explaining the improvements")
     status: str = Field(description="'success' or 'error'")
 
-def optimize_prompt():
-    input_path = os.path.join(".tmp", "input.json")
-    output_path = os.path.join(".tmp", "output.json")
-    
-    # Error handling initialization
-    error_result = {
-        "perfected_prompt": "",
-        "friendly_message": "",
-        "status": "error"
-    }
-    
-    def write_output(data):
-        with open(output_path, 'w') as f:
-            json.dump(data, f, indent=2)
-
-    if not os.path.exists(input_path):
-        error_result["friendly_message"] = f"Input file not found at {input_path}"
-        write_output(error_result)
-        sys.exit(1)
-
-    with open(input_path, 'r') as f:
-        try:
-            data = json.load(f)
-        except json.JSONDecodeError:
-            error_result["friendly_message"] = "Invalid JSON format in input.json"
-            write_output(error_result)
-            sys.exit(1)
-
-    imperfect_prompt = data.get("imperfect_prompt", "")
-    target_llm = data.get("target_llm", "Any AI")
-
-    if not imperfect_prompt.strip():
-        error_result["friendly_message"] = "The provided prompt was empty. Please provide a prompt to optimize."
-        write_output(error_result)
-        sys.exit(0)
-
+def run_optimization(imperfect_prompt, target_llm="Any AI"):
     gemini_key = os.environ.get("GEMINI_API_KEY")
     if not gemini_key:
-        error_result["friendly_message"] = "Server Error: GEMINI_API_KEY is not set."
-        write_output(error_result)
-        sys.exit(1)
+        return {
+            "perfected_prompt": "",
+            "friendly_message": "Server Error: GEMINI_API_KEY is not set.",
+            "status": "error"
+        }
 
-    print("Optimizing prompt with Gemini...")
+    if not imperfect_prompt.strip():
+        return {
+            "perfected_prompt": "",
+            "friendly_message": "The provided prompt was empty. Please provide a prompt to optimize.",
+            "status": "error"
+        }
+
     try:
         client = genai.Client(api_key=gemini_key)
         
@@ -85,17 +56,24 @@ def optimize_prompt():
             }
         )
         
-        raw_output = response.text
-        # Safety check to ensure parsing works
-        final_output = json.loads(raw_output)
-        
-        write_output(final_output)
-        print(f"✅ Optimization complete. See {output_path}")
+        return json.loads(response.text)
 
     except Exception as e:
-        error_result["friendly_message"] = f"Failed to contact AI service: {str(e)}"
-        write_output(error_result)
-        sys.exit(1)
+        return {
+            "perfected_prompt": "",
+            "friendly_message": f"Failed to contact AI service: {str(e)}",
+            "status": "error"
+        }
 
 if __name__ == "__main__":
-    optimize_prompt()
+    # For local script usage - backward compatibility
+    import sys
+    input_path = os.path.join(".tmp", "input.json")
+    output_path = os.path.join(".tmp", "output.json")
+    
+    if os.path.exists(input_path):
+        with open(input_path, 'r') as f:
+            data = json.load(f)
+            res = run_optimization(data.get("imperfect_prompt", ""))
+            with open(output_path, 'w') as f_out:
+                json.dump(res, f_out, indent=2)
