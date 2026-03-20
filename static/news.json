@@ -1,0 +1,38 @@
+[
+  {
+    "category": "Frontier Models",
+    "title": "OpenAI Launches GPT-5.4 with Native Computer-Use",
+    "snippet": "OpenAI has officially released GPT-5.4, introducing native support for computer-use abilities within Codex, allowing AI agents to operate directly across desktop applications.",
+    "url": "https://openai.com"
+  },
+  {
+    "category": "Agencies",
+    "title": "Anthropic Unveils Claude Cowork for macOS",
+    "snippet": "Anthropic brings agentic capabilities to everyday work with Claude Cowork, a dedicated platform for OS X that helps users manage complex, multi-step workflows autonomously.",
+    "url": "https://anthropic.com"
+  },
+  {
+    "category": "Performance",
+    "title": "Gemini 3.1 Pro Now Dominates Benchmarks",
+    "snippet": "Google's latest Gemini 3.1 Pro update has taken the lead in 13 out of 16 major performance benchmarks, solidifying its position as a powerhouse for deep reasoning tasks.",
+    "url": "https://deepmind.google"
+  },
+  {
+    "category": "Open Source",
+    "title": "DeepSeek V4: The 1 Trillion Parameter Giant",
+    "snippet": "DeepSeek has released V4, a massive 1-trillion parameter model featuring a tiered KV cache for ultra-fast inference and sparse FP8 decoding for efficiency.",
+    "url": "https://deepseek.com"
+  },
+  {
+    "category": "Hardware",
+    "title": "Nvidia Reveals 'Vera Rubin' Next-Gen GPU Platform",
+    "snippet": "At GTC 2026, Nvidia unveiled its new AI factory platform designed to support trillion-parameter models and physical AI simulations at massive scales.",
+    "url": "https://nvidia.com"
+  },
+  {
+    "category": "Infrastructure",
+    "title": "Meta Signs $27B Infrastructure Deal with Nebius",
+    "snippet": "Meta has secured its AI future with a monumental five-year agreement for cloud infrastructure to power its next generation of research into autonomous systems.",
+    "url": "https://meta.com"
+  }
+]

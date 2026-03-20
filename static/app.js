@@ -167,4 +167,36 @@ document.addEventListener('DOMContentLoaded', () => {
         sendBtn.disabled = false;
         copyBtn.innerHTML = '<i class="fa-regular fa-copy"></i> Copy';
     });
+
+    // Fetch and display AI news
+    const fetchNews = async () => {
+        const newsGrid = document.getElementById('newsGrid');
+        try {
+            const response = await fetch('/news.json');
+            if (!response.ok) throw new Error('Failed to load news');
+            
+            const news = await response.json();
+            newsGrid.innerHTML = '';
+            
+            news.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'news-card';
+                card.innerHTML = `
+                    <span class="news-tag">${item.category || 'AI News'}</span>
+                    <h4 class="news-title">${item.title}</h4>
+                    <p class="news-snippet">${item.snippet}</p>
+                    <a href="${item.url}" target="_blank" class="news-link">
+                        Read More <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                `;
+                newsGrid.appendChild(card);
+            });
+        } catch (error) {
+            console.error('Error fetching news:', error);
+            newsGrid.innerHTML = '<p style="color: #666; font-family: monospace;">News update in progress...</p>';
+        }
+    };
+
+    fetchNews();
 });
+
