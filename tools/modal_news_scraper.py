@@ -10,7 +10,7 @@ app = modal.App("promptly-news-refresher")
 
 @app.function(
     image=image,
-    schedule=modal.Period(hours=12),
+    schedule=modal.Period(hours=24),
     secrets=[
         modal.Secret.from_name("gemini-api-key"),
         # You'll need to create a GitHub token secret in Modal to push updates
