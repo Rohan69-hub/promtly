@@ -38,8 +38,14 @@ def refresh_ai_news():
     class NewsResults(BaseModel):
         news: list[NewsItem]
 
-    # Search for latest AI news using Gemini's knowledge
-    prompt = "Get the 6 most groundbreaking AI news stories from the last 24 hours. Categories like Model Releases, Agents, Hardware, etc. Output as JSON."
+    # Search for latest AI news using Gemini's knowledge, prioritizing specific sources requested by the user
+    prompt = (
+        "Get the 6 most groundbreaking AI news stories from the last 24 hours. "
+        "Prioritize developments reported by industry trackers like AI Magazine, MarkTechPost, "
+        "Artificial Intelligence News, and high-quality newsletters like Superhuman. "
+        "Focus on category (e.g., Model Releases, Agents, Hardware), Title, a 2-sentence Snipper, and the URL. "
+        "Output as JSON matching the NewsResults schema."
+    )
 
     response = client.models.generate_content(
         model='gemini-2.5-flash',
