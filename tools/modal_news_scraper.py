@@ -23,8 +23,9 @@ def refresh_ai_news():
 
     print(f"Refreshing news at {datetime.now()}")
 
-    GEMINI_API_KEY = os.environ["GEMINI_API_KEY"]
-    GITHUB_TOKEN = os.environ["GITHUB_TOKEN"]
+    # Check for both standard and user-defined variable names
+    GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY") or os.environ.get("geminiapikey")
+    GITHUB_TOKEN = os.environ.get("GITHUB_TOKEN") or os.environ.get("github-token")
     REPO_NAME = "Rohan69-hub/promtly" # Note: matches your repo name exactly
 
     client = genai.Client(api_key=GEMINI_API_KEY)
