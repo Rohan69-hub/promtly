@@ -1,4 +1,26 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Spotlight & Shine Tracking
+    document.addEventListener('pointermove', (e) => {
+        const spotlights = document.querySelectorAll('.spotlight-card');
+        const shiners = document.querySelectorAll('.shine-border');
+        
+        spotlights.forEach(card => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            card.style.setProperty('--mouse-x', `${x}px`);
+            card.style.setProperty('--mouse-y', `${y}px`);
+        });
+
+        shiners.forEach(shiner => {
+            const rect = shiner.getBoundingClientRect();
+            const x = ((e.clientX - rect.left) / rect.width) * 100;
+            const y = ((e.clientY - rect.top) / rect.height) * 100;
+            shiner.style.setProperty('--shine-x', `${x}%`);
+            shiner.style.setProperty('--shine-y', `${y}%`);
+        });
+    });
+
     const promptInput = document.getElementById('promptInput');
     const sendBtn = document.getElementById('sendBtn');
     const inputSection = document.getElementById('inputSection');
@@ -180,16 +202,22 @@ document.addEventListener('DOMContentLoaded', () => {
             
             news.forEach(item => {
                 const card = document.createElement('div');
-                card.className = 'news-card';
-                card.innerHTML = `
-                    <span class="news-tag">${item.category || 'AI News'}</span>
-                    <h4 class="news-title">${item.title}</h4>
-                    <p class="news-snippet">${item.snippet}</p>
-                    <a href="${item.url}" target="_blank" class="news-link">
-                        Read More <i class="fa-solid fa-arrow-right"></i>
-                    </a>
-                `;
-                newsGrid.appendChild(card);
+            card.className = 'news-card spotlight-card';
+            
+            const shineWrapper = document.createElement('div');
+            shineWrapper.className = 'shine-border';
+            
+            card.innerHTML = `
+                <div class="news-tag">${item.tag || 'AI Update'}</div>
+                <h4 class="news-title">${item.title}</h4>
+                <p class="news-snippet">${item.snippet}</p>
+                <a href="${item.url}" target="_blank" class="news-link">
+                    Read Story <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            `;
+            
+            shineWrapper.appendChild(card);
+            newsGrid.appendChild(shineWrapper);
             });
         } catch (error) {
             console.error('Error fetching news:', error);

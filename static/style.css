@@ -364,3 +364,66 @@ textarea::placeholder {
     from { background-position: 200% 0; }
     to { background-position: -200% 0; }
 }
+
+/* --- Spotlight & Shine Effects --- */
+
+@keyframes shine {
+    0% { background-position: 0% 0%; }
+    50% { background-position: 100% 100%; }
+    100% { background-position: 0% 0%; }
+}
+
+.shine-border {
+    position: relative;
+    padding: 2px; /* Border width */
+    background: #0D0D0D;
+    overflow: hidden;
+}
+
+.shine-border::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: 2px;
+    background: radial-gradient(
+        circle at var(--shine-x, 50%) var(--shine-y, 50%),
+        #BFF549,
+        transparent 50%
+    );
+    background-size: 300% 300%;
+    animation: shine 14s infinite linear;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    -webkit-mask-composite: xor;
+    pointer-events: none;
+}
+
+.spotlight-card {
+    position: relative;
+    background: rgba(13, 13, 13, 0.8);
+    backdrop-filter: blur(10px);
+    overflow: hidden;
+}
+
+.spotlight-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+        600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+        rgba(191, 245, 73, 0.1),
+        transparent 40%
+    );
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Update Glass Panel to use fixed geometry and spotlight */
+.glass-panel {
+    background: rgba(13, 13, 13, 0.5) !important;
+    border: 4px solid #BFF549; 
+    padding: 40px;
+    box-shadow: 10px 10px 0px rgba(191, 245, 73, 0.2);
+    position: relative;
+}
