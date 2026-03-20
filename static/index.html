@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promptly | Craft Your Best Prompt</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="background"></div>
+    <main class="container">
+        <div class="glass-panel">
+            <div class="header">
+                <div class="ai-sphere" id="sphere"></div>
+                <!-- Custom text requested by the user -->
+                <h1 class="greeting">hi there, lets craft your best promt</h1>
+                <h2 class="sub-greeting">What's on <span class="highlight">your mind</span>?</h2>
+            </div>
+            
+            <div class="input-container" id="inputSection">
+                <textarea id="promptInput" placeholder="Ask me anything..." rows="3"></textarea>
+                <div class="input-actions">
+                    <button class="icon-btn"><i class="fa-solid fa-paperclip"></i> Attach</button>
+                    <button class="icon-btn" id="voiceBtn"><i class="fa-solid fa-microphone"></i> Voice</button>
+                    <button class="send-btn" id="sendBtn"><i class="fa-solid fa-arrow-up"></i> Send</button>
+                </div>
+            </div>
+
+            <!-- Result Section mapping to gemini.md schema -->
+            <div class="result-container" id="resultSection" style="display: none;">
+                <div class="result-grid">
+                    <div class="friendly-box">
+                        <p id="friendlyMessage"></p>
+                    </div>
+                    <div class="prompt-box">
+                        <h3>Your Perfected Prompt:</h3>
+                        <div class="code-wrapper">
+                            <textarea id="perfectedPrompt" readonly></textarea>
+                            <button class="copy-btn" id="copyBtn"><i class="fa-regular fa-copy"></i> Copy</button>
+                        </div>
+                    </div>
+                </div>
+                <button class="reset-btn" id="resetBtn">Start Over</button>
+            </div>
+        </div>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>
