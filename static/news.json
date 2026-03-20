@@ -34,5 +34,29 @@
     "title": "Meta Signs $27B Infrastructure Deal with Nebius",
     "snippet": "Meta has secured its AI future with a monumental five-year agreement for cloud infrastructure to power its next generation of research into autonomous systems.",
     "url": "https://meta.com"
+  },
+  {
+    "category": "Research",
+    "title": "SoundHound AI Unveils Fully Agentic Multimodal Edge Platform",
+    "snippet": "SoundHound AI has introduced a groundbreaking platform that allows AI agents to perceive, comprehend, and autonomous act completely on edge devices without cloud reliance.",
+    "url": "https://www.artificialintelligence-news.com/"
+  },
+  {
+    "category": "Regulation",
+    "title": "Washington Passes AI Transparency and Content Provenance Laws",
+    "snippet": "New state-level regulations have been signed into law focusing on the transparency of chatbots and tracking the origin of AI-generated content for deepfake prevention.",
+    "url": "https://www.artificialintelligence-news.com/"
+  },
+  {
+    "category": "Enterprise",
+    "title": "Microsoft Launches Copilot Cowork for Corporate Agents",
+    "snippet": "To compete with Anthropic, Microsoft has expanded the Copilot platform with 'Cowork', designed to autonomously handle enterprise tasks like meeting scheduling and research mapping.",
+    "url": "https://www.artificialintelligence-news.com/"
+  },
+  {
+    "category": "Development",
+    "title": "Nvidia Releases Nemotron 3 Super for Agentic Coding",
+    "snippet": "Aiming at developers, the Nemotron 3 Super is a 120B-parameter model specialized for building agentic coding tools that can write and debug across complex repositories.",
+    "url": "https://www.artificialintelligence-news.com/"
   }
 ]
