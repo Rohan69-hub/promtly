@@ -28,7 +28,19 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
     
-    sendBtn.disabled = true;
+    // Initial setup with default text
+    if (promptInput.value.trim() !== '') {
+        promptInput.style.height = (promptInput.scrollHeight) + 'px';
+        sendBtn.disabled = false;
+        // Move cursor to end on initial focus
+        promptInput.addEventListener('focus', function() {
+            const val = this.value;
+            this.value = '';
+            this.value = val;
+        }, { once: true });
+    } else {
+        sendBtn.disabled = true;
+    }
 
     // Voice recognition setup
     if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
@@ -149,8 +161,10 @@ document.addEventListener('DOMContentLoaded', () => {
         resultSection.style.display = 'none';
         document.querySelector('.header').style.display = 'block';
         inputSection.style.display = 'block';
-        promptInput.value = '';
+        promptInput.value = 'I want to tell my AI to ';
         promptInput.style.height = 'auto';
-        sendBtn.disabled = true;
+        promptInput.style.height = (promptInput.scrollHeight) + 'px';
+        sendBtn.disabled = false;
+        copyBtn.innerHTML = '<i class="fa-regular fa-copy"></i> Copy';
     });
 });
