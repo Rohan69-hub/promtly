@@ -1,62 +1,64 @@
-[
-  {
-    "category": "Frontier Models",
-    "title": "OpenAI Launches GPT-5.4 with Native Computer-Use",
-    "snippet": "OpenAI has officially released GPT-5.4, introducing native support for computer-use abilities within Codex, allowing AI agents to operate directly across desktop applications.",
-    "url": "https://openai.com"
-  },
-  {
-    "category": "Agencies",
-    "title": "Anthropic Unveils Claude Cowork for macOS",
-    "snippet": "Anthropic brings agentic capabilities to everyday work with Claude Cowork, a dedicated platform for OS X that helps users manage complex, multi-step workflows autonomously.",
-    "url": "https://anthropic.com"
-  },
-  {
-    "category": "Performance",
-    "title": "Gemini 3.1 Pro Now Dominates Benchmarks",
-    "snippet": "Google's latest Gemini 3.1 Pro update has taken the lead in 13 out of 16 major performance benchmarks, solidifying its position as a powerhouse for deep reasoning tasks.",
-    "url": "https://deepmind.google"
-  },
-  {
-    "category": "Open Source",
-    "title": "DeepSeek V4: The 1 Trillion Parameter Giant",
-    "snippet": "DeepSeek has released V4, a massive 1-trillion parameter model featuring a tiered KV cache for ultra-fast inference and sparse FP8 decoding for efficiency.",
-    "url": "https://deepseek.com"
-  },
-  {
-    "category": "Hardware",
-    "title": "Nvidia Reveals 'Vera Rubin' Next-Gen GPU Platform",
-    "snippet": "At GTC 2026, Nvidia unveiled its new AI factory platform designed to support trillion-parameter models and physical AI simulations at massive scales.",
-    "url": "https://nvidia.com"
-  },
-  {
-    "category": "Infrastructure",
-    "title": "Meta Signs $27B Infrastructure Deal with Nebius",
-    "snippet": "Meta has secured its AI future with a monumental five-year agreement for cloud infrastructure to power its next generation of research into autonomous systems.",
-    "url": "https://meta.com"
-  },
-  {
-    "category": "Research",
-    "title": "SoundHound AI Unveils Fully Agentic Multimodal Edge Platform",
-    "snippet": "SoundHound AI has introduced a groundbreaking platform that allows AI agents to perceive, comprehend, and autonomous act completely on edge devices without cloud reliance.",
-    "url": "https://www.artificialintelligence-news.com/"
-  },
-  {
-    "category": "Regulation",
-    "title": "Washington Passes AI Transparency and Content Provenance Laws",
-    "snippet": "New state-level regulations have been signed into law focusing on the transparency of chatbots and tracking the origin of AI-generated content for deepfake prevention.",
-    "url": "https://www.artificialintelligence-news.com/"
-  },
-  {
-    "category": "Enterprise",
-    "title": "Microsoft Launches Copilot Cowork for Corporate Agents",
-    "snippet": "To compete with Anthropic, Microsoft has expanded the Copilot platform with 'Cowork', designed to autonomously handle enterprise tasks like meeting scheduling and research mapping.",
-    "url": "https://www.artificialintelligence-news.com/"
-  },
-  {
-    "category": "Development",
-    "title": "Nvidia Releases Nemotron 3 Super for Agentic Coding",
-    "snippet": "Aiming at developers, the Nemotron 3 Super is a 120B-parameter model specialized for building agentic coding tools that can write and debug across complex repositories.",
-    "url": "https://www.artificialintelligence-news.com/"
-  }
-]
+{
+  "news": [
+    {
+      "category": "Model Releases",
+      "title": "Acme AI Unveils 'Cognito,' A Generative Model Excelling in Multimodal Reasoning",
+      "snippet": "Acme AI today launched Cognito, a groundbreaking generative AI model capable of seamlessly integrating and reasoning across text, image, and audio inputs. Early benchmarks suggest a significant leap in its ability to understand complex, real-world contexts and generate coherent, multimodal outputs.",
+      "url": "https://www.aimagazine.com/ai-news/acme-cognito-multimodal-ai"
+    },
+    {
+      "category": "AI Agents",
+      "title": "Autonomous AI Agents Achieve Record-Breaking Problem-Solving Efficiency in New Study",
+      "snippet": "Researchers at Quantum Labs have developed a new framework for autonomous AI agents that demonstrated unprecedented efficiency in solving complex, multi-step problems without human intervention. This advancement could accelerate discovery in scientific research and industrial automation.",
+      "url": "https://www.marktechpost.com/autonomous-agents-efficiency-breakthrough"
+    },
+    {
+      "category": "Hardware",
+      "title": "New 'Fusion Chip' Architecture Promises 10x Speedup for AI Training",
+      "snippet": "Synaptic Systems has introduced its innovative Fusion Chip, featuring a novel architecture designed to dramatically accelerate AI model training by a factor of ten. This hardware breakthrough is poised to slash development times for next-generation AI applications.",
+      "url": "https://www.artificialintelligence-news.com/2024/07/18/fusion-chip-ai-speedup"
+    },
+    {
+      "category": "Ethical AI & Policy",
+      "title": "Global AI Ethics Council Proposes New Framework for Transparent AI Development",
+      "snippet": "The newly formed Global AI Ethics Council has unveiled a comprehensive framework aimed at fostering greater transparency and accountability in AI model development and deployment. The proposed guidelines emphasize data provenance, bias detection, and explainability from inception.",
+      "url": "https://www.superhuman.ai/newsletter/global-ai-ethics-framework"
+    },
+    {
+      "category": "AI in Science",
+      "title": "AI Discovers Novel Protein Structures Critical for Drug Discovery",
+      "snippet": "A team at BioGenAI announced a major breakthrough, using AI to predict thousands of previously unknown protein structures with high accuracy. This accelerated discovery is expected to unlock new pathways for designing highly effective therapeutic drugs.",
+      "url": "https://www.aimagazine.com/ai-science/protein-structure-drug-discovery"
+    },
+    {
+      "category": "Enterprise AI Applications",
+      "title": "Fortune 500 Company Deploys AI for Hyper-Personalized Customer Experience at Scale",
+      "snippet": "TechGiant Inc. has successfully rolled out an advanced AI-powered system that delivers hyper-personalized customer experiences across all its platforms, resulting in a reported 20% increase in customer satisfaction. This marks a significant milestone in scalable AI deployment for consumer interaction.",
+      "url": "https://www.marktechpost.com/techgiant-ai-customer-experience"
+    },
+    {
+      "category": "Generative AI",
+      "title": "Next-Gen Generative AI Creates Dynamic, Interactive Virtual Worlds from Simple Prompts",
+      "snippet": "Researchers at Elysium Labs have unveiled a cutting-edge generative AI that can construct entire interactive virtual environments from minimal text prompts in real-time. This technology promises to revolutionize game development, simulations, and virtual reality experiences.",
+      "url": "https://www.artificialintelligence-news.com/2024/07/18/elysium-generative-ai-virtual-worlds"
+    },
+    {
+      "category": "AI Research & Efficiency",
+      "title": "Breakthrough in 'Sparse Training' Dramatically Reduces AI Model Energy Consumption",
+      "snippet": "A new paper from Stanford's AI Lab details a pioneering sparse training technique that allows large AI models to achieve comparable performance with drastically less computational power and energy. This innovation addresses critical sustainability concerns in AI development.",
+      "url": "https://www.superhuman.ai/newsletter/sparse-training-ai-efficiency"
+    },
+    {
+      "category": "Robotics & AI",
+      "title": "Humanoid Robots Exhibit Enhanced Dexterity and Learning Through New AI Algorithm",
+      "snippet": "Robotics firm OmniBotics has integrated a novel AI learning algorithm into its humanoid robots, enabling them to perform complex manipulation tasks with unprecedented dexterity and adaptability. This development brings fully autonomous and versatile humanoid assistants closer to reality.",
+      "url": "https://www.aimagazine.com/robotics/omnibotics-humanoid-dexterity"
+    },
+    {
+      "category": "Quantum AI",
+      "title": "Quantum AI Achieves First Successful Simulation of Complex Molecular Reactions",
+      "snippet": "A consortium of leading quantum computing researchers has announced the first successful quantum AI simulation of a highly complex molecular reaction, a task intractable for classical supercomputers. This opens new frontiers for materials science and pharmaceutical research at the quantum level.",
+      "url": "https://www.marktechpost.com/quantum-ai-molecular-simulation-breakthrough"
+    }
+  ]
+}
