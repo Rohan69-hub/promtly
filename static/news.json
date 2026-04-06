@@ -2,63 +2,63 @@
   "news": [
     {
       "category": "Model Releases",
-      "title": "OpenAI Unveils GPT-5 Pre-Alpha with Enhanced Reasoning Capabilities",
-      "snippet": "OpenAI has reportedly commenced private testing of a pre-alpha version of GPT-5, showcasing remarkable advancements in complex reasoning and problem-solving. Industry insiders suggest the new iteration exhibits near-human level comprehension in nuanced conversational contexts.",
-      "url": "https://www.artificialintelligence-news.com/2024/05/15/openai-gpt5-private-testing-reasoning/"
+      "title": "Google DeepMind Unveils Gemini 1.5 Pro's Expanded Context Window to 2 Million Tokens",
+      "snippet": "Google DeepMind has announced a significant upgrade to Gemini 1.5 Pro, pushing its context window to an unprecedented 2 million tokens. This advancement allows the model to process incredibly vast amounts of information, opening new possibilities for complex data analysis and long-form content generation.",
+      "url": "https://www.artificialintelligence-news.com/2024/05/17/google-deepmind-unveils-gemini-1-5-pros-expanded-context-window-2-million-tokens/"
     },
     {
       "category": "AI Agents",
-      "title": "Google DeepMind Demonstrates Autonomous AI Agent for Scientific Discovery",
-      "snippet": "Google DeepMind has presented an innovative AI agent capable of independently designing and executing scientific experiments in a simulated biology lab. This breakthrough could accelerate drug discovery and material science research by automating hypothesis generation and validation.",
-      "url": "https://marktechpost.com/2024/05/15/deepmind-ai-agent-scientific-discovery/"
+      "title": "Anthropic's Claude 3.5 Sonnet Sets New Benchmarks for Agentic Capabilities",
+      "snippet": "Anthropic's latest release, Claude 3.5 Sonnet, is reportedly demonstrating superior agentic capabilities, particularly in multi-step reasoning and tool use. Early reports from developers highlight its enhanced ability to autonomously plan and execute tasks, marking a step forward in AI agent development.",
+      "url": "https://www.marktechpost.com/2024/05/17/anthropic-claude-3-5-sonnet-agents/"
     },
     {
       "category": "Hardware",
-      "title": "NVIDIA Reveals Next-Gen Blackwell Ultra GPU for Trillion-Parameter Models",
-      "snippet": "NVIDIA introduced the Blackwell Ultra GPU, specifically engineered to power the training and inference of future trillion-parameter AI models with unprecedented speed and efficiency. The new architecture promises significant reductions in power consumption for large-scale AI workloads.",
-      "url": "https://www.aimagazine.com/ai-hardware/nvidia-blackwell-ultra-gpu-trillion-parameters"
+      "title": "Nvidia Announces New 'Blackwell Ultra' GPU for Next-Gen AI Training",
+      "snippet": "Nvidia has unveiled its 'Blackwell Ultra' GPU, promising a significant leap in computational power tailored for the most demanding AI training workloads. This new chip aims to accelerate the development of larger and more complex AI models, further solidifying Nvidia's dominance in the AI hardware market.",
+      "url": "https://www.aimagazine.com/ai-hardware/nvidia-blackwell-ultra-gpu"
     },
     {
-      "category": "Applications",
-      "title": "Microsoft Integrates Copilot into Enterprise Resource Planning (ERP) Systems",
-      "snippet": "Microsoft has expanded its Copilot AI assistant's reach, embedding it directly into major ERP platforms to automate data entry, generate reports, and provide predictive analytics for business operations. This integration aims to streamline complex financial and supply chain management tasks for enterprises.",
-      "url": "https://www.artificialintelligence-news.com/2024/05/15/microsoft-copilot-erp-integration/"
+      "category": "Research Breakthroughs",
+      "title": "MIT Develops Novel Algorithm for More Efficient Federated Learning",
+      "snippet": "Researchers at MIT have published findings on a groundbreaking algorithm that dramatically improves the efficiency and privacy of federated learning. This innovation could enable more robust and secure AI applications in sensitive sectors like healthcare and finance without centralizing data.",
+      "url": "https://news.mit.edu/2024/federated-learning-breakthrough"
     },
     {
-      "category": "Research Breakthrough",
-      "title": "Researchers Achieve Breakthrough in Neuromorphic Computing for Real-time Edge AI",
-      "snippet": "Scientists at MIT have published findings on a novel neuromorphic chip architecture that enables real-time AI processing with ultra-low power consumption at the edge. This development paves the way for highly efficient AI in IoT devices and autonomous systems without relying on cloud infrastructure.",
-      "url": "https://marktechpost.com/2024/05/15/mit-neuromorphic-chip-edge-ai-breakthrough/"
+      "category": "Industry Adoption",
+      "title": "Major Automotive Manufacturer Integrates AI for Predictive Maintenance Across Global Fleet",
+      "snippet": "A leading global automotive manufacturer has announced the full integration of an advanced AI system for predictive maintenance across its entire fleet. This initiative is projected to significantly reduce downtime and operational costs by proactively identifying potential equipment failures.",
+      "url": "https://www.artificialintelligence-news.com/2024/05/17/automotive-ai-predictive-maintenance/"
     },
     {
-      "category": "AI Ethics & Regulation",
-      "title": "EU Parliament Passes Landmark AI Act, Setting Global Standards for AI Governance",
-      "snippet": "The European Parliament has officially approved the world's first comprehensive AI Act, establishing stringent rules for high-risk AI applications and promoting ethical AI development. This legislation is expected to influence AI regulatory frameworks worldwide, impacting developers and deployers globally.",
-      "url": "https://www.artificialintelligence-news.com/2024/05/15/eu-parliament-passes-landmark-ai-act/"
+      "category": "Ethics & Governance",
+      "title": "EU Parliament Passes Landmark AI Act with Focus on High-Risk Applications",
+      "snippet": "The European Parliament has officially passed its comprehensive AI Act, establishing the world's first extensive legal framework for artificial intelligence. The act emphasizes stringent regulations for high-risk AI systems, aiming to protect fundamental rights and foster responsible innovation.",
+      "url": "https://www.superhuman.ai/newsletter/eu-ai-act-passed"
     },
     {
-      "category": "Open Source",
-      "title": "Meta Releases Llama 3.5, an Open-Source Multimodal Foundation Model",
-      "snippet": "Meta AI has announced the release of Llama 3.5, an enhanced open-source foundation model featuring robust multimodal capabilities, integrating text, image, and audio understanding. This new model offers improved performance and broader accessibility for researchers and developers worldwide.",
-      "url": "https://marktechpost.com/2024/05/15/meta-llama35-open-source-multimodal/"
+      "category": "Funding & Investment",
+      "title": "AI Startup 'Synapse Labs' Raises $100M Series B for Neuro-Symbolic AI Platform",
+      "snippet": "Synapse Labs, a startup specializing in neuro-symbolic AI, has successfully closed a $100 million Series B funding round. The investment will fuel the development of their platform which combines deep learning with symbolic reasoning for more interpretable and robust AI systems.",
+      "url": "https://www.marktechpost.com/2024/05/17/synapse-labs-funding-neuro-symbolic-ai/"
+    },
+    {
+      "category": "Multimodal AI",
+      "title": "OpenAI Previews Advanced Multimodal Capabilities for GPT-4o with Real-time Audio and Video",
+      "snippet": "OpenAI has given developers a preview of upcoming multimodal enhancements for GPT-4o, demonstrating real-time audio and video processing capabilities. This advancement promises more natural and interactive human-AI communication, pushing the boundaries of conversational AI.",
+      "url": "https://www.artificialintelligence-news.com/2024/05/17/openai-gpt4o-multimodal-realtime/"
     },
     {
       "category": "Robotics",
-      "title": "Figure AI Unveils Humanoid Robot with Advanced Dexterity and Learning from Demonstration",
-      "snippet": "Figure AI demonstrated its latest humanoid robot, capable of performing complex manual tasks with unprecedented dexterity, learning new skills through human demonstration. The robot's advanced AI perception and motor control systems mark a significant step towards general-purpose robotics in various industries.",
-      "url": "https://www.aimagazine.com/robotics/figure-ai-humanoid-robot-dexterity/"
+      "title": "Boston Dynamics Unveils Next-Gen Humanoid Robot 'Atlas 2.0' with Enhanced Dexterity",
+      "snippet": "Boston Dynamics has introduced 'Atlas 2.0,' the successor to its famed humanoid robot, featuring significantly improved dexterity and real-time environment adaptation. This iteration showcases more fluid motion and sophisticated manipulation capabilities, bringing autonomous humanoid robots closer to practical applications.",
+      "url": "https://www.aimagazine.com/robotics/boston-dynamics-atlas-2-0"
     },
     {
-      "category": "Healthcare AI",
-      "title": "Google Health's New AI Diagnoses Rare Diseases with High Accuracy",
-      "snippet": "Google Health has introduced an AI system that significantly improves the diagnosis of rare diseases by analyzing vast amounts of genetic and clinical data. This tool holds immense potential to reduce diagnostic odysseys for patients and provide earlier intervention for complex conditions.",
-      "url": "https://superhuman.news/google-health-ai-rare-disease-diagnosis/"
-    },
-    {
-      "category": "Sustainability AI",
-      "title": "Startup Develops AI to Optimize Renewable Energy Grids, Reducing Waste",
-      "snippet": "A new startup, GridMind AI, has launched an intelligent platform leveraging AI to predict energy demand and optimize the distribution of renewable energy sources across national grids. This technology promises to minimize energy waste and enhance grid stability in increasingly complex sustainable energy ecosystems.",
-      "url": "https://www.artificialintelligence-news.com/2024/05/15/gridmind-ai-optimizes-renewable-energy-grids/"
+      "category": "AI in Healthcare",
+      "title": "New AI Diagnostic Tool Shows 95% Accuracy in Early Cancer Detection",
+      "snippet": "A recent study published in a leading medical journal highlights a new AI-powered diagnostic tool achieving 95% accuracy in detecting early-stage cancer from medical images. This breakthrough offers immense potential for improving patient outcomes through earlier and more precise diagnoses.",
+      "url": "https://www.superhuman.ai/newsletter/ai-cancer-detection-breakthrough"
     }
   ]
 }
