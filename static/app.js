@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
     promptInput.addEventListener('input', function() {
         this.style.height = 'auto';
         this.style.height = (this.scrollHeight) + 'px';
-        sendBtn.disabled = this.value.trim() === '';
+        sendBtn.disabled = this.value.trim().length <= 5;
     });
     
     // Enter to submit, Shift+Enter for new line
@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initial setup with default text
     if (promptInput.value.trim() !== '') {
         promptInput.style.height = (promptInput.scrollHeight) + 'px';
-        sendBtn.disabled = false;
+        sendBtn.disabled = promptInput.value.trim().length <= 5;
         // Move cursor to end on initial focus
         promptInput.addEventListener('focus', function() {
             const val = this.value;
@@ -81,12 +81,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
             manuallyStopped = false;
-            voiceBtn.innerHTML = '<i class="fa-solid fa-microphone-lines fa-fade"></i> Listening... (Click to stop)';
+            voiceBtn.innerHTML = '<i class="fa-solid fa-microphone-lines fa-fade"></i> Listening...';
+            voiceBtn.style.borderColor = '#BFF549';
+            voiceBtn.style.color = '#BFF549';
             try {
                 recognition.start();
                 isListening = true;
             } catch (err) {
                 console.log(err);
+                voiceBtn.innerHTML = '<i class="fa-solid fa-microphone"></i> Voice';
+                voiceBtn.style.borderColor = '';
+                voiceBtn.style.color = '';
             }
         });
         
@@ -102,39 +107,40 @@ document.addEventListener('DOMContentLoaded', () => {
                 promptInput.value += (promptInput.value ? ' ' : '') + finalTranscript.trim();
                 promptInput.style.height = 'auto';
                 promptInput.style.height = (promptInput.scrollHeight) + 'px';
-                sendBtn.disabled = promptInput.value.trim() === '';
+                sendBtn.disabled = promptInput.value.trim().length <= 5;
             }
         };
         
         recognition.onerror = (event) => {
+            manuallyStopped = true;
+            isListening = false;
             if (event.error === 'not-allowed') {
-                manuallyStopped = true;
-                isListening = false;
+                voiceBtn.innerHTML = '<i class="fa-solid fa-microphone-slash"></i> Blocked';
+            } else {
                 voiceBtn.innerHTML = '<i class="fa-solid fa-microphone"></i> Voice';
             }
+            voiceBtn.style.borderColor = '';
+            voiceBtn.style.color = '';
         };
         
         recognition.onend = () => {
-            if (!manuallyStopped) {
-                // The browser aggressively cut off the listener, so boot it back up immediately
-                try {
-                    recognition.start();
-                } catch(e) {
-                    isListening = false;
-                    voiceBtn.innerHTML = '<i class="fa-solid fa-microphone"></i> Voice';
-                }
-            } else {
-                voiceBtn.innerHTML = '<i class="fa-solid fa-microphone"></i> Voice';
-                isListening = false;
-            }
+            voiceBtn.innerHTML = '<i class="fa-solid fa-microphone"></i> Voice';
+            voiceBtn.style.borderColor = '';
+            voiceBtn.style.color = '';
+            isListening = false;
         };
     } else {
-        voiceBtn.addEventListener('click', () => alert("Voice recognition not supported in this browser."));
+        voiceBtn.addEventListener('click', () => {
+            voiceBtn.innerHTML = '<i class="fa-solid fa-microphone-slash"></i> Not Supported';
+            setTimeout(() => {
+                voiceBtn.innerHTML = '<i class="fa-solid fa-microphone"></i> Voice';
+            }, 2500);
+        });
     }
 
     sendBtn.addEventListener('click', async () => {
         const text = promptInput.value.trim();
-        if (!text) return;
+        if (!text || text.length <= 5) return;
 
         // UI Loading State
         sendBtn.disabled = true;
@@ -153,16 +159,25 @@ document.addEventListener('DOMContentLoaded', () => {
             if(data.status === 'success') {
                 friendlyMessage.textContent = data.friendly_message;
                 perfectedPrompt.value = data.perfected_prompt;
+                document.querySelector('.prompt-box').style.display = 'block';
                 
                 // Animate transition
                 document.querySelector('.header').style.display = 'none';
                 inputSection.style.display = 'none';
                 resultSection.style.display = 'block';
             } else {
-                alert("Error optimizing prompt: " + data.friendly_message);
+                friendlyMessage.textContent = "Error optimizing prompt: " + (data.error || data.friendly_message || "Unknown error");
+                document.querySelector('.prompt-box').style.display = 'none';
+                document.querySelector('.header').style.display = 'none';
+                inputSection.style.display = 'none';
+                resultSection.style.display = 'block';
             }
         } catch (error) {
-            alert("Network error: Failed to reach backend engine.");
+            friendlyMessage.textContent = "Failed to Optimize: Network error or backend unavailable.";
+            document.querySelector('.prompt-box').style.display = 'none';
+            document.querySelector('.header').style.display = 'none';
+            inputSection.style.display = 'none';
+            resultSection.style.display = 'block';
         } finally {
             sendBtn.innerHTML = '<i class="fa-solid fa-arrow-up"></i> Send';
             sendBtn.disabled = false;
@@ -181,12 +196,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     resetBtn.addEventListener('click', () => {
         resultSection.style.display = 'none';
+        document.querySelector('.prompt-box').style.display = 'block';
         document.querySelector('.header').style.display = 'block';
         inputSection.style.display = 'block';
-        promptInput.value = 'I want to tell my AI to ';
+        promptInput.value = '';
         promptInput.style.height = 'auto';
-        promptInput.style.height = (promptInput.scrollHeight) + 'px';
-        sendBtn.disabled = false;
+        sendBtn.disabled = true;
         copyBtn.innerHTML = '<i class="fa-regular fa-copy"></i> Copy';
     });
 

@@ -427,3 +427,48 @@ textarea::placeholder {
     box-shadow: 10px 10px 0px rgba(191, 245, 73, 0.2);
     position: relative;
 }
+
+/* Mobile Responsiveness */
+@media (max-width: 600px) {
+    body {
+        padding: 16px 12px;
+        align-items: flex-start;
+    }
+    .container {
+        padding: 8px;
+    }
+    .glass-panel {
+        padding: 20px 16px;
+    }
+    .greeting {
+        font-size: 36px;
+    }
+    .sub-greeting {
+        font-size: 26px;
+    }
+    .header {
+        margin-bottom: 24px;
+    }
+    .input-actions {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+    .send-btn, .icon-btn {
+        justify-content: center;
+        width: 100%;
+    }
+    .result-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    .code-wrapper textarea {
+        height: 250px;
+    }
+    .copy-btn {
+        position: static;
+        width: 100%;
+        margin-top: 8px;
+    }
+}
+

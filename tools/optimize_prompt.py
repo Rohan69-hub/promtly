@@ -46,17 +46,28 @@ def run_optimization(imperfect_prompt, target_llm="Any AI"):
         
         user_message_content = f"Target LLM: {target_llm}\nImperfect Prompt: {imperfect_prompt}"
         
-        response = client.models.generate_content(
-            model='gemini-2.5-flash',
-            contents=user_message_content,
-            config={
-                'system_instruction': system_instruction,
-                'response_mime_type': 'application/json',
-                'response_schema': PromptOptimizationResult
-            }
-        )
-        
-        return json.loads(response.text)
+        import time
+        max_retries = 3
+        for attempt in range(max_retries):
+            try:
+                response = client.models.generate_content(
+                    model='gemini-2.5-flash',
+                    contents=user_message_content,
+                    config={
+                        'system_instruction': system_instruction,
+                        'response_mime_type': 'application/json',
+                        'response_schema': PromptOptimizationResult
+                    }
+                )
+                return json.loads(response.text)
+            except Exception as e:
+                error_str = str(e)
+                # Only retry on 503 or 429 quota exhaustion (if temp)
+                if '503' in error_str or '429' in error_str:
+                    if attempt < max_retries - 1:
+                        time.sleep(2 ** attempt)  # 1s, 2s backoff
+                        continue
+                raise e
 
     except Exception as e:
         return {
