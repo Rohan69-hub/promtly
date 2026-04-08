@@ -47,7 +47,7 @@ def run_optimization(imperfect_prompt, target_llm="Any AI"):
         user_message_content = f"Target LLM: {target_llm}\nImperfect Prompt: {imperfect_prompt}"
         
         import time
-        max_retries = 3
+        max_retries = 4
         for attempt in range(max_retries):
             try:
                 response = client.models.generate_content(
@@ -62,17 +62,27 @@ def run_optimization(imperfect_prompt, target_llm="Any AI"):
                 return json.loads(response.text)
             except Exception as e:
                 error_str = str(e)
-                # Only retry on 503 or 429 quota exhaustion (if temp)
+                # Retry on 503 (overloaded) or 429 (rate limit)
                 if '503' in error_str or '429' in error_str:
                     if attempt < max_retries - 1:
-                        time.sleep(2 ** attempt)  # 1s, 2s backoff
+                        wait = [3, 6, 12][attempt]  # 3s, 6s, 12s backoff
+                        time.sleep(wait)
                         continue
                 raise e
 
     except Exception as e:
+        error_str = str(e)
+        if '503' in error_str:
+            friendly = "The AI is experiencing high demand right now. Please wait a moment and try again."
+        elif '429' in error_str:
+            friendly = "Too many requests at once. Please wait a few seconds and try again."
+        elif 'API_KEY' in error_str or '401' in error_str or '403' in error_str:
+            friendly = "There's an issue with the API key. Please contact support."
+        else:
+            friendly = "Something went wrong while optimizing your prompt. Please try again."
         return {
             "perfected_prompt": "",
-            "friendly_message": f"Failed to contact AI service: {str(e)}",
+            "friendly_message": friendly,
             "status": "error"
         }
 
