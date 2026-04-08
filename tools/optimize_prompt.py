@@ -47,7 +47,7 @@ def run_optimization(imperfect_prompt, target_llm="Any AI"):
         user_message_content = f"Target LLM: {target_llm}\nImperfect Prompt: {imperfect_prompt}"
         
         response = client.models.generate_content(
-            model='gemini-3.1-pro-preview',
+            model='gemini-2.5-flash',
             contents=user_message_content,
             config={
                 'system_instruction': system_instruction,
