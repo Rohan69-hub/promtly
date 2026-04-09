@@ -1,4 +1,6 @@
 flask
+flask-cors
+flask-limiter
 google-genai
 python-dotenv
 pydantic
